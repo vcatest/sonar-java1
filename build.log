@@ -1,0 +1,44 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.sonarjava:sonar-java-private >------------------
+[INFO] Building Sonar Java Private 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ sonar-java-private ---
+[INFO] Deleting /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ sonar-java-private ---
+[INFO] skip non existing resourceDirectory /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ sonar-java-private ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 187 source files with javac [forked debug target 17] to target/classes
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/SpringConstructorInjectionCheck.java:[26,2] error: invalid method declaration; return type required
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/DisallowedClassCheck.java:[1,14] error: '.' expected
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/InputStreamOverrideReadCheck.java:[26,9] error: invalid method declaration; return type required
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/InputStreamOverrideReadCheck.java:[50,9] error: invalid method declaration; return type required
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/InputStreamOverrideReadCheck.java:[72,9] error: invalid method declaration; return type required
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/naming/BadLocalVariableNameNoncompliant.java:[42,31] error: '_' used as an identifier
+  (use of '_' as an identifier is forbidden for lambda parameters)
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/naming/BadLocalVariableNameNoncompliant.java:[43,26] error: '_' used as an identifier
+  (use of '_' as an identifier is forbidden for lambda parameters)
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/helpers/JavadocTest.java:[115,67] error: ';' expected
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/helpers/JavadocTest.java:[115,76] error: illegal start of type
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/UnderscoreMisplacedOnNumberCheck.java:[7,11] error: integer number too large
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/ConstructorCallingOverridableCheck.java:[42,2] error: invalid method declaration; return type required
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/parsing/ParsingError.java:[1,5] error: reached end of file while parsing
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/PublicStaticFieldShouldBeFinalCheck.java:[14,16] error: invalid method declaration; return type required
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/SwitchCaseWithoutBreakCheck.java:[216,10] error: invalid method declaration; return type required
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/ClassFieldCountCheck/UnusualTrees.java:[15,13] error: = expected
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/ClassFieldCountCheck/UnusualTrees.java:[16,13] error: = expected
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/ClassFieldCountCheck/UnusualTrees.java:[17,13] error: = expected
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/naming/KeywordAsIdentifierCheck.java:[3,6] error: as of release 9, '_' is a keyword, and may not be used as an identifier
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/naming/KeywordAsIdentifierCheck.java:[8,10] error: as of release 9, '_' is a keyword, and may not be used as an identifier
+[ERROR] /Users/nilesh/nilesh/source_codes/git/java/sonar-java-private/src/main/java/naming/KeywordAsIdentifierCheck.java:[13,8] error: as of release 9, '_' is a keyword, and may not be used as an identifier
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.383 s
+[INFO] Finished at: 2025-12-09T19:41:41+05:30
+[INFO] ------------------------------------------------------------------------
