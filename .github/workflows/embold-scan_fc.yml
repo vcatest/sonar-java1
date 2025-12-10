@@ -1,4 +1,4 @@
-# .github/workflows/embold-scan_fc.yml
+## .github/workflows/embold-scan_fc.yml
 
 name: Embold Code Quality Scan
 
