@@ -1,16 +1,18 @@
+import java.util.Arrays;
+
 public class UnnamedVariableShouldUseVarCheck {
 
     public void nonCompliantExample1() {
-        for (String _ : Arrays.asList("a", "b", "c")) { // Noncompliant
-            System.out.println(_);
+        for (String item : Arrays.asList("a", "b", "c")) { // Noncompliant
+            System.out.println(item);
         }
     }
 
     public void nonCompliantExample2() {
         try (java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.StringReader("test"))) { // Noncompliant
-            String _;
-            while ((_ = reader.readLine()) != null) {
-                System.out.println(_);
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
             }
         } catch (java.io.IOException e) {
             e.printStackTrace();
@@ -18,17 +20,17 @@ public class UnnamedVariableShouldUseVarCheck {
     }
 
     public void compliantExample1() {
-        for (var _ : Arrays.asList("a", "b", "c")) {
-            System.out.println(_);
+        for (var item : Arrays.asList("a", "b", "c")) {
+            System.out.println(item);
         }
     }
 
     public void compliantExample2() {
         try (java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.StringReader("test"))) {
-            var _ = reader.readLine();
-            while (_ != null) {
-                System.out.println(_);
-                _ = reader.readLine();
+            var line = reader.readLine();
+            while (line != null) {
+                System.out.println(line);
+                line = reader.readLine();
             }
         } catch (java.io.IOException e) {
             e.printStackTrace();
@@ -47,9 +49,9 @@ public class UnnamedVariableShouldUseVarCheck {
             java.sql.Statement statement = connection.createStatement();
             java.sql.ResultSet resultSet = statement.executeQuery("SELECT * FROM test_table");
             while (resultSet.next()) {
-                String _;
-                _ = resultSet.getString(1);
-                System.out.println(_);
+                String value;
+                value = resultSet.getString(1);
+                System.out.println(value);
             }
         } catch (java.sql.SQLException e) {
             e.printStackTrace();

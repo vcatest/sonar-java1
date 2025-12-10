@@ -31,7 +31,7 @@ public class ThrowCheckedExceptionCheck {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception, java.io.IOException {
         ThrowCheckedExceptionCheck test = new ThrowCheckedExceptionCheck();
         test.nonCompliantExample1();
         test.nonCompliantExample2();

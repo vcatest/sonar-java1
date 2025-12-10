@@ -1,3 +1,5 @@
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class VirtualThreadNotSynchronizedCheck {
 
     // Noncompliant - Accessing shared mutable state without synchronization in a virtual thread.
@@ -13,7 +15,6 @@ public class VirtualThreadNotSynchronizedCheck {
     }
 
     // Compliant - Using a thread-safe data structure (AtomicInteger)
-    import java.util.concurrent.atomic.AtomicInteger;
     private AtomicInteger atomicCounter = new AtomicInteger(0);
     public void incrementAtomicCounterCompliant() {
         atomicCounter.incrementAndGet();

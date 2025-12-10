@@ -24,7 +24,9 @@ public class RecordPatternInsteadOfFieldAccessCheck {
 
     // Compliant - Using record pattern matching with variable declaration
     public void compliantExample2(Object obj) {
-        if (obj instanceof Point(int x, int y)) {
+        if (obj instanceof Point p) {
+            int x = p.x();
+            int y = p.y();
             System.out.println("X: " + x + ", Y: " + y);
         }
     }

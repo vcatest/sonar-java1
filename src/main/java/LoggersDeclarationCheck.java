@@ -1,10 +1,10 @@
 public class LoggersDeclarationCheck {
 
-    // Noncompliant
+    // Noncompliant - using Log4j
     private static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(LoggersDeclarationCheck.class);
 
     public void nonCompliantExample1() {
-        logger.info("This is a log message.");
+        // logger.info("This is a log message.");
     }
 
     // Noncompliant

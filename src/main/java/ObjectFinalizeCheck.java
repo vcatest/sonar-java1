@@ -6,13 +6,6 @@ public class ObjectFinalizeCheck {
         System.out.println("Finalizing...");
     }
 
-    // Noncompliant - Another example of overriding finalize().
-    @Override
-    protected void finalize() {
-        // Cleanup resources, but this is unreliable.
-        System.gc();
-    }
-
     public void compliantMethod() {
         // This method does not override finalize(), so it's compliant.
         System.out.println("Compliant method.");

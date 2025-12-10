@@ -32,7 +32,7 @@ public class InputStreamReadCheck {
 
     public void compliantExample2() throws Exception {
         java.io.InputStream inputStream = new java.io.FileInputStream("test.txt");
-        java.io.Scanner scanner = new java.io.Scanner(inputStream);
+        java.util.Scanner scanner = new java.util.Scanner(inputStream);
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             System.out.println(line);

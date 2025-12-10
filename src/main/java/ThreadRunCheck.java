@@ -10,8 +10,9 @@ public class ThreadRunCheck {
     // Noncompliant - Starting a thread inside a loop without managing thread lifecycle.
     public void nonCompliantExample2() {
         for (int i = 0; i < 5; i++) {
+            final int threadId = i; // Make variable effectively final for lambda
             new Thread(() -> {
-                System.out.println("Thread " + i + " running");
+                System.out.println("Thread " + threadId + " running");
             }).start();
         }
     }

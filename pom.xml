@@ -18,6 +18,13 @@
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
         <spring.boot.version>2.7.18</spring.boot.version>
+        
+        <!-- SonarQube Properties -->
+        <sonar.projectKey>sonar-java-rules-test</sonar.projectKey>
+        <sonar.projectName>SonarJava Rules Test Project</sonar.projectName>
+        <sonar.sources>src/main/java</sonar.sources>
+        <sonar.java.source>18</sonar.java.source>
+        <sonar.java.binaries>target/classes</sonar.java.binaries>
     </properties>
 
     <dependencies>
@@ -151,10 +158,83 @@
             <artifactId>logback-classic</artifactId>
             <version>1.4.11</version>
         </dependency>
+
+        <!-- Log4j for logging examples -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+        <!-- Apache Commons Logging -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <!-- JetBrains Annotations for @Nullable, @NonNull -->
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>24.1.0</version>
+        </dependency>
+
+        <!-- Android SDK for Android-specific checks -->
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>4.1.1.4</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Hibernate JPA Implementation -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.6.15.Final</version>
+        </dependency>
+
+        <!-- Spring Data JPA -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>2.7.18</version>
+        </dependency>
+
+        <!-- Spring Web MVC -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.3.31</version>
+        </dependency>
+
+        <!-- Spring JDBC -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>5.3.31</version>
+        </dependency>
+
+        <!-- JSP API -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.3</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- FindBugs Annotations -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Maven Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -170,8 +250,10 @@
                         <arg>-nowarn</arg>
                         <arg>-proc:none</arg>
                     </compilerArgs>
-                    <!-- Exclude files with intentional syntax errors (see COMPILATION_ISSUES.md) -->
+                    <!-- Exclude files with intentional compilation errors for SonarQube analysis -->
+                    <!-- These files remain in src/ for SonarQube to analyze but won't break the build -->
                     <excludes>
+                        <!-- Original excludes -->
                         <exclude>**/naming/BadLocalVariableNameNoncompliant.java</exclude>
                         <exclude>**/ConstructorCallingOverridableCheck.java</exclude>
                         <exclude>**/DisallowedClassCheck.java</exclude>
@@ -184,8 +266,86 @@
                         <exclude>**/SwitchCaseWithoutBreakCheck.java</exclude>
                         <exclude>**/UnderscoreMisplacedOnNumberCheck.java</exclude>
                         <exclude>**/ClassFieldCountCheck/UnusualTrees.java</exclude>
+                        
+                        <!-- Intentional type errors for SonarQube rule demonstration -->
+                        <exclude>**/RepeatAnnotationCheck.java</exclude>
+                        <exclude>**/StringPrimitiveConstructorCheck.java</exclude>
+                        <exclude>**/WrongAssignmentOperatorCheck.java</exclude>
+                        <exclude>**/DoublePrefixOperatorCheck.java</exclude>
+                        <exclude>**/LoggedRethrownExceptionsCheck.java</exclude>
+                        <exclude>**/DefaultEncodingUsageCheck.java</exclude>
+                        <exclude>**/PopulateBeansCheck.java</exclude>
+                        
+                        <!-- Static context violations (intentional bad examples) -->
+                        <exclude>**/AbstractClassWithoutAbstractMethodCheck.java</exclude>
+                        <exclude>**/FinalClassCheck.java</exclude>
+                        <exclude>**/InnerStaticClassesCheck.java</exclude>
+                        <exclude>**/UselessExtendsCheck.java</exclude>
+                        <exclude>**/ErrorClassExtendedCheck.java</exclude>
+                        <exclude>**/JacksonDeserializationCheck.java</exclude>
+                        <exclude>**/ProtectedMemberInFinalClassCheck.java</exclude>
+                        
+                        <!-- Final/immutability violations -->
+                        <exclude>**/AccessibilityChangeOnRecordsCheck.java</exclude>
+                        <exclude>**/FinalizeFieldsSetCheck.java</exclude>
+                        
+                        <!-- Java version issues (requires Java 19+) -->
+                        <exclude>**/VirtualThreadUnsupportedMethodsCheck.java</exclude>
+                        <exclude>**/BlockingOperationsInVirtualThreadsCheck.java</exclude>
+                        <exclude>**/RunFinalizersCheck.java</exclude>
+                        
+                        <!-- Non-existent API calls (intentional) -->
+                        <exclude>**/NullReturnedOnComputeIfPresentOrAbsentCheck.java</exclude>
+                        <exclude>**/ToArrayCheck.java</exclude>
+                        <exclude>**/URLHashCodeAndEqualsCheck.java</exclude>
+                        
+                        <!-- Type system issues -->
+                        <exclude>**/ClassComparedByNameCheck.java</exclude>
+                        <exclude>**/ReplaceGuavaWithJavaCheck.java</exclude>
+                        <exclude>**/IteratorNextExceptionCheck.java</exclude>
+                        <exclude>**/TypeParametersShadowingCheck.java</exclude>
+                        
+                        <!-- Inheritance violations -->
+                        <exclude>**/ObjectFinalizeOverriddenNotPublicCheck.java</exclude>
+                        <exclude>**/DoubleBraceInitializationCheck.java</exclude>
+                        <exclude>**/PublicConstructorInAbstractClassCheck.java</exclude>
+                        <exclude>**/EnumMutableFieldCheck.java</exclude>
+                        
+                        <!-- Switch case issues -->
+                        <exclude>**/IdenticalCasesInSwitchCheck.java</exclude>
+                        
+                        <!-- Android-specific (BLE APIs not fully compatible) -->
+                        <exclude>**/BluetoothLowPowerModeCheck.java</exclude>
+                        
+                        <!-- Additional files with intentional errors or missing APIs -->
+                        <exclude>**/CombineCatchCheck.java</exclude>
+                        <exclude>**/CallToFileDeleteOnExitMethodCheck.java</exclude>
+                        <exclude>**/MethodTooBigCheck.java</exclude>
+                        <exclude>**/ServletInstanceFieldCheck.java</exclude>
+                        <exclude>**/OutputStreamOverrideWriteCheck.java</exclude>
+                        <exclude>**/ResultSetIsLastCheck.java</exclude>
+                        <exclude>**/CollectionCallingItselfCheck.java</exclude>
+                        <exclude>**/ArraysAsListOfPrimitiveToStreamCheck.java</exclude>
+                        <exclude>**/StrongCipherAlgorithmCheck.java</exclude>
+                        <exclude>**/MethodOnlyCallsSuperCheck.java</exclude>
+                        <exclude>**/CallSuperMethodFromInnerClassCheck.java</exclude>
+                        <exclude>**/RedundantTypeCastCheck.java</exclude>
+                        <exclude>**/SuppressWarningsCheck.java</exclude>
+                        <exclude>**/VolatileVariablesOperationsCheck.java</exclude>
+                        <exclude>**/UseTransformClassInsteadOfBuildCheck.java</exclude>
+                        <exclude>**/StringLiteralInsideEqualsCheck.java</exclude>
+                        <exclude>**/UseMotionSensorWithoutGyroscopeCheck.java</exclude>
+                        <exclude>**/EnumMapCheck.java</exclude>
+                        <exclude>**/SpecializedFunctionalInterfacesCheck.java</exclude>
                     </excludes>
                 </configuration>
+            </plugin>
+            
+            <!-- SonarQube Scanner Plugin -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.10.0.2594</version>
             </plugin>
         </plugins>
     </build>

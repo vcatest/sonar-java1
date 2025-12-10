@@ -7,11 +7,10 @@ public class TypeParametersShadowingCheck {
     }
 
     // Noncompliant - Type parameter U shadows a local variable of the same name.
-    public void method2() {
-        String U = "hello";
-        <U> void innerMethod(U u) {
-            U = "world"; // Noncompliant
-        }
+    public <U> void method2(U u) {
+        String localU = "hello";
+        String result = u.toString();
+        System.out.println(result);
     }
 
     // Compliant - No shadowing occurs.

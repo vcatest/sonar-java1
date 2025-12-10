@@ -6,7 +6,7 @@ public class MainMethodThrowsExceptionCheck {
     }
 
     // Noncompliant - Main method throws a checked exception
-    public static void main(String[] args) throws IllegalArgumentException {
+    public static void mainExample2(String[] args) throws IllegalArgumentException {
         if (args.length == 0) {
             throw new IllegalArgumentException("No arguments provided");
         }
@@ -14,12 +14,12 @@ public class MainMethodThrowsExceptionCheck {
     }
 
     // Compliant - Main method does not throw any exception
-    public static void main(String[] args) {
+    public static void mainCompliant1(String[] args) {
         System.out.println("This is a compliant main method");
     }
 
     // Compliant - Main method catches and handles the exception
-    public static void main(String[] args) {
+    public static void mainCompliant2(String[] args) {
         try {
             int result = 10 / 0;
         } catch (ArithmeticException e) {

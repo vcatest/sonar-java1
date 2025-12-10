@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class CatchRethrowingCheck {
 
     // Noncompliant - Catching and rethrowing without adding context

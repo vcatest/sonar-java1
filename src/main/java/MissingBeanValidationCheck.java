@@ -1,3 +1,5 @@
+import javax.validation.Valid;
+
 public class MissingBeanValidationCheck {
 
     // Noncompliant - Missing @Valid annotation on method parameter

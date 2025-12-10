@@ -1,9 +1,9 @@
-public class NioFileDeleteCheck {
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-    import java.io.IOException;
-    import java.nio.file.Files;
-    import java.nio.file.Path;
-    import java.nio.file.Paths;
+public class NioFileDeleteCheck {
 
     public void nonCompliantExample1() throws IOException {
         Path filePath = Paths.get("temp.txt");

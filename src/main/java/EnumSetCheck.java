@@ -1,3 +1,5 @@
+import java.util.EnumSet;
+
 public class EnumSetCheck {
 
     // Noncompliant - Using EnumSet with a single element using of() method.

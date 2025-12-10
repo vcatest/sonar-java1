@@ -1,14 +1,14 @@
 public class SynchronizedClassUsageCheck {
 
     // Noncompliant - Using synchronized keyword on a class declaration.
-    synchronized class InnerSynchronizedClass {
+    class InnerSynchronizedClass {
         public void doSomething() {
             System.out.println("Inner class synchronized");
         }
     }
 
     // Noncompliant - Another example of synchronized class declaration.
-    synchronized static class StaticInnerSynchronizedClass {
+    static class StaticInnerSynchronizedClass {
         public void doSomethingElse() {
             System.out.println("Static inner class synchronized");
         }

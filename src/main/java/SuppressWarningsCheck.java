@@ -1,4 +1,7 @@
-public class SuppressWarningCheck {
+import java.util.ArrayList;
+import java.util.List;
+
+public class SuppressWarningsCheck {
 
     public void nonCompliantExample1() {
         @SuppressWarnings("unchecked") // Noncompliant
@@ -24,13 +27,10 @@ public class SuppressWarningCheck {
     }
 
     public static void main(String[] args) {
-        SuppressWarningsCheck test = new SuppressWarningCheck();
+        SuppressWarningsCheck test = new SuppressWarningsCheck();
         test.nonCompliantExample1();
         test.nonCompliantExample2();
         test.compliantExample1();
         test.compliantExample2();
     }
 }
-
-import java.util.ArrayList;
-import java.util.List;

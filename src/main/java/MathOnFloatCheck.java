@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+
 public class MathOnFloatCheck {
 
     public void nonCompliantExample1() {

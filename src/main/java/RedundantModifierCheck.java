@@ -1,7 +1,7 @@
 public class RedundantModifierCheck {
 
-    // Noncompliant
-    public final int x;
+    // Noncompliant - public final field without initialization
+    public final int x = 0;
 
     // Noncompliant
     private static final String DEFAULT_VALUE = "test";

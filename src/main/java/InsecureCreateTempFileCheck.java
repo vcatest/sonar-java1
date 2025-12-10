@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class InsecureCreateTempFileCheck {
 
     public void nonCompliantExample1() throws Exception {

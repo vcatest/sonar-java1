@@ -29,9 +29,8 @@ public class ToStringReturningNullCheck {
     }
 
     // Compliant - Using Optional to handle potential null from toString()
-    import java.util.Optional;
     public void compliantExample3(Object obj) {
-        Optional<String> optionalString = Optional.ofNullable(obj).map(Object::toString);
+        java.util.Optional<String> optionalString = java.util.Optional.ofNullable(obj).map(Object::toString);
         optionalString.ifPresent(str -> System.out.println(str.length()));
     }
 

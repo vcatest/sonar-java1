@@ -1,7 +1,7 @@
-public class DateUtilsTruncateCheck {
+import java.util.Date;
+import org.apache.commons.lang3.time.DateUtils;
 
-    import java.util.Date;
-    import org.apache.commons.lang3.time.DateUtils;
+public class DateUtilsTruncateCheck {
 
     public void nonCompliantExample1() {
         Date date = new Date();

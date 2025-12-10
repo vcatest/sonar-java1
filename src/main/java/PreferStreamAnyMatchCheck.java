@@ -1,3 +1,6 @@
+import java.util.List;
+import java.util.Arrays;
+
 public class PreferStreamAnyMatchCheck {
 
     // Noncompliant
@@ -43,6 +46,3 @@ public class PreferStreamAnyMatchCheck {
         System.out.println("Compliant 2: " + check.checkListContainsElement_Compliant2(intList, 1));
     }
 }
-
-import java.util.List;
-import java.util.Arrays;

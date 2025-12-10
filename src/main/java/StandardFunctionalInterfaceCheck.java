@@ -1,3 +1,6 @@
+import java.util.function.Function;
+import java.util.function.Predicate;
+
 public class StandardFunctionalInterfaceCheck {
 
     // Noncompliant - Using a custom functional interface with a single abstract method when a standard one exists.
@@ -22,8 +25,6 @@ public class StandardFunctionalInterfaceCheck {
     }
 
     // Compliant - Using a standard functional interface (Function)
-    import java.util.function.Function;
-
     public void compliantExample1() {
         Function<String, Void> func = s -> {
             System.out.println(s);
@@ -33,8 +34,6 @@ public class StandardFunctionalInterfaceCheck {
     }
 
     // Compliant - Using a standard functional interface (Predicate)
-    import java.util.function.Predicate;
-
     public void compliantExample2() {
         Predicate<Integer> isEven = n -> n % 2 == 0;
         boolean result = isEven.test(4);

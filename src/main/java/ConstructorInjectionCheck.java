@@ -1,53 +1,60 @@
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class ConstructorInjectionCheck {
 
-    // Noncompliant - Field injection
-    @Autowired
-    private MyService myService;
+    // Example 1: Noncompliant - Field injection
+    static class FieldInjectionExample {
+        @Autowired
+        private MyService myService;
 
-    public ConstructorInjectionCheck() {
+        public void doSomething() {
+            myService.performAction();
+        }
     }
 
-    public void doSomething() {
-        myService.performAction();
+    // Example 2: Noncompliant - Setter injection
+    static class SetterInjectionExample {
+        private AnotherService anotherService;
+
+        @Autowired
+        public void setAnotherService(AnotherService anotherService) {
+            this.anotherService = anotherService;
+        }
+
+        public void doAnotherThing() {
+            anotherService.executeTask();
+        }
     }
 
-    // Noncompliant - Setter injection
-    private AnotherService anotherService;
+    // Example 3: Compliant - Constructor injection
+    static class ConstructorInjectionExample {
+        private final YetAnotherService yetAnotherService;
 
-    @Autowired
-    public void setAnotherService(AnotherService anotherService) {
-        this.anotherService = anotherService;
+        @Autowired
+        public ConstructorInjectionExample(YetAnotherService yetAnotherService) {
+            this.yetAnotherService = yetAnotherService;
+        }
+
+        public void doYetAnotherThing() {
+            yetAnotherService.processData();
+        }
     }
 
-    public void doAnotherThing() {
-        anotherService.executeTask();
-    }
+    // Example 4: Compliant - Constructor injection with multiple dependencies
+    static class MultipleConstructorInjectionExample {
+        private final FirstService firstService;
+        private final SecondService secondService;
 
-    // Compliant - Constructor injection
-    private final YetAnotherService yetAnotherService;
+        @Autowired
+        public MultipleConstructorInjectionExample(FirstService firstService, SecondService secondService) {
+            this.firstService = firstService;
+            this.secondService = secondService;
+        }
 
-    @Autowired
-    public ConstructorInjectionCheck(YetAnotherService yetAnotherService) {
-        this.yetAnotherService = yetAnotherService;
-    }
-
-    public void doYetAnotherThing() {
-        yetAnotherService.processData();
-    }
-
-    // Compliant - Constructor injection with multiple dependencies
-    private final FirstService firstService;
-    private final SecondService secondService;
-
-    @Autowired
-    public ConstructorInjectionCheck(FirstService firstService, SecondService secondService) {
-        this.firstService = firstService;
-        this.secondService = secondService;
-    }
-
-    public void doMultipleThings() {
-        firstService.handleRequest();
-        secondService.respond();
+        public void doMultipleThings() {
+            firstService.handleRequest();
+            secondService.respond();
+        }
     }
 
     interface MyService {

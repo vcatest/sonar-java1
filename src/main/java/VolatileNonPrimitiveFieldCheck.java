@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class VolatileNonPrimitiveFieldCheck {
 
     // Noncompliant - Non-volatile field of a non-primitive type

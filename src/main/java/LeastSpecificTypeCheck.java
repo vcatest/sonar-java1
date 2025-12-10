@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class LeastSpecificTypeCheck {
 
     // Noncompliant - Using Object when String is more specific

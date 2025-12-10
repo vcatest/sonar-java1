@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class LoopsOnSameSetCheck {
 
     // Noncompliant - Iterating over the same collection multiple times without storing the result.
@@ -50,6 +52,4 @@ public class LoopsOnSameSetCheck {
             System.out.println(value * 2);
         }
     }
-}
-
-import java.util.List;
+    }

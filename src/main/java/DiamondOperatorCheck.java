@@ -1,3 +1,13 @@
+import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.HashSet;
+
 public class DiamondOperatorCheck {
 
     public static void main(String[] args) {
@@ -22,14 +32,5 @@ public class DiamondOperatorCheck {
         // Compliant
         Queue<String> queue2 = new LinkedList<String>();
     }
+    
 }
-
-import java.util.*;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.HashSet;

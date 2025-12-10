@@ -13,12 +13,7 @@ public class ObjectFinalizeOverloadedCheck {
         // Some code here
     }
 
-    // Compliant - Only one finalize method is defined.
-    protected void finalize() throws Throwable {
-        System.out.println("Finalize method");
-    }
-
-    // Compliant - No finalize method is defined.
+    // Compliant - Only one finalize method is defined (removed duplicate)
     public class NoFinalizeMethod {
         public void someOtherMethod() {
             // Some other code

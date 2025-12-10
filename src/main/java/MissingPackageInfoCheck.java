@@ -16,18 +16,14 @@ public class MissingPackageInfoCheck {
         }
     }
 
-    // Compliant
-    package com.example;
-
+    // Compliant - Inner class example (should have package-info.java)
     public class CompliantClass1 {
         public void someMethod() {
             System.out.println("This class has a package-info.java");
         }
     }
 
-    // Compliant
-    package com.test;
-
+    // Compliant - Inner class example (should have package-info.java)
     public class CompliantClass2 {
         private String name;
 

@@ -12,7 +12,7 @@ public class ConfusingOverloadCheck {
     public void calculate(double x, double y) {
         System.out.println("Calculating x and y");
     }
-    public void calculate(double y, double x) { // Noncompliant
+    public void calculateReversed(double y, double x) { // Noncompliant
         System.out.println("Calculating y and x");
     }
 

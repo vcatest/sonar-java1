@@ -1,7 +1,7 @@
-public class DateTimeFormatterMismatchCheck {
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-    import java.time.LocalDateTime;
-    import java.time.format.DateTimeFormatter;
+public class DateTimeFormatterMismatchCheck {
 
     public void nonCompliantExample1() {
         String dateString = "2023-10-26";

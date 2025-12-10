@@ -1,3 +1,6 @@
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 public class AnnotationDefaultArgumentCheck {
 
     // Noncompliant - Missing default value for annotation member
@@ -8,7 +11,7 @@ public class AnnotationDefaultArgumentCheck {
 
     public void testNoncompliant1() {
         @MyAnnotation(value = "test")
-        public class TestClass1 {}
+        class TestClass1 {}
     }
 
     // Noncompliant - Missing default value for annotation member
@@ -19,7 +22,7 @@ public class AnnotationDefaultArgumentCheck {
 
     public void testNoncompliant2() {
         @AnotherAnnotation(count = 10)
-        public class TestClass2 {}
+        class TestClass2 {}
     }
 
     // Compliant - Annotation member has a default value
@@ -30,7 +33,7 @@ public class AnnotationDefaultArgumentCheck {
 
     public void testCompliant1() {
         @GoodAnnotation
-        public class TestClass3 {}
+        class TestClass3 {}
     }
 
     // Compliant - Annotation member has a default value and is overridden
@@ -41,6 +44,6 @@ public class AnnotationDefaultArgumentCheck {
 
     public void testCompliant2() {
         @AnotherGoodAnnotation(number = 5)
-        public class TestClass4 {}
+        class TestClass4 {}
     }
 }

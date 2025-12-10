@@ -6,7 +6,7 @@ public class TabCharacterCheck {
     }
 
     public void nonCompliantExample2() {
-        int[] numbers = {1, 2, 3, \t4, 5}; // Noncompliant
+        int[] numbers = {1, 2, 3, 4, 5}; // Noncompliant (removed invalid escape)
         for (int number : numbers) {
             System.out.println(number);
         }

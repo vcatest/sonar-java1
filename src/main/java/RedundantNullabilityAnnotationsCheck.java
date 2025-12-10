@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.Nullable;
+
 public class RedundantNullabilityAnnotationsCheck {
 
     // Noncompliant

@@ -25,11 +25,11 @@ public class ConfigurationBeanNamesCheck {
     // Compliant - Bean name starts with uppercase
     private String MyConfig;
 
-    public String getMyConfig() {
+    public String getMyConfigCompliant() {
         return MyConfig;
     }
 
-    public void setMyConfig(String myConfig) {
+    public void setMyConfigCompliant(String myConfig) {
         this.MyConfig = myConfig;
     }
 

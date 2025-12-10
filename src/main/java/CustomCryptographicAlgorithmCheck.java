@@ -21,13 +21,15 @@ public class CustomCryptographicAlgorithmCheck {
             byte[] dataBytes = data.getBytes();
             byte[] encryptedBytes = cipher.doFinal(dataBytes);
             return java.util.Base64.getEncoder().encodeToString(encryptedBytes);
-        } catch (java.security.NoSuchAlgorithmException | javax.crypto.NoSuchPaddingException | javax.crypto.IllegalBlockSizeException | javax.crypto.BadPaddingException e) {
+        } catch (java.security.NoSuchAlgorithmException | javax.crypto.NoSuchPaddingException | 
+                 javax.crypto.IllegalBlockSizeException | javax.crypto.BadPaddingException | 
+                 java.security.InvalidKeyException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    private javax.crypto.SecretKey generateDESKey() throws javax.crypto.NoSuchPaddingException {
+    private javax.crypto.SecretKey generateDESKey() throws java.security.NoSuchAlgorithmException {
         return javax.crypto.KeyGenerator.getInstance("DES").generateKey();
     }
 
@@ -52,13 +54,15 @@ public class CustomCryptographicAlgorithmCheck {
             byte[] dataBytes = data.getBytes();
             byte[] encryptedBytes = cipher.doFinal(dataBytes);
             return java.util.Base64.getEncoder().encodeToString(encryptedBytes);
-        } catch (java.security.NoSuchAlgorithmException | javax.crypto.NoSuchPaddingException | javax.crypto.IllegalBlockSizeException | javax.crypto.BadPaddingException e) {
+        } catch (java.security.NoSuchAlgorithmException | javax.crypto.NoSuchPaddingException | 
+                 javax.crypto.IllegalBlockSizeException | javax.crypto.BadPaddingException | 
+                 java.security.InvalidKeyException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    private javax.crypto.SecretKey generateAESKey() throws javax.crypto.NoSuchPaddingException {
+    private javax.crypto.SecretKey generateAESKey() throws java.security.NoSuchAlgorithmException {
         return javax.crypto.KeyGenerator.getInstance("AES").generateKey();
     }
 }

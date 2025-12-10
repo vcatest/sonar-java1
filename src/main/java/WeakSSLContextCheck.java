@@ -1,3 +1,5 @@
+import javax.net.ssl.SSLContext;
+
 public class WeakSSLContextCheck {
 
     // Noncompliant

@@ -1,7 +1,8 @@
-public class UselessImportCheck {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Date;
 
-    // Noncompliant
-    import java.util.ArrayList;
+public class UselessImportCheck {
 
     public void nonCompliantExample1() {
         // ArrayList is never used
@@ -9,8 +10,7 @@ public class UselessImportCheck {
         System.out.println(message);
     }
 
-    // Noncompliant
-    import java.util.HashMap;
+    // Noncompliant - unused import
 
     public void nonCompliantExample2() {
         // HashMap is never used
@@ -18,16 +18,12 @@ public class UselessImportCheck {
         System.out.println(number);
     }
 
-    import java.util.List;
-
     public void compliantExample1() {
         List<String> names = new ArrayList<>();
         names.add("Alice");
         names.add("Bob");
         System.out.println(names);
     }
-
-    import java.util.Date;
 
     public void compliantExample2() {
         Date now = new Date();

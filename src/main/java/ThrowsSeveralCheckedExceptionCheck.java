@@ -1,3 +1,6 @@
+import java.io.IOException;
+import java.sql.SQLException;
+
 public class ThrowsSeveralCheckedExceptionCheck {
 
     // Noncompliant - Throws multiple checked exceptions

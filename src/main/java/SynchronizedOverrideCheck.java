@@ -5,7 +5,7 @@ public class SynchronizedOverrideCheck {
         System.out.println("Original method");
     }
 
-    public synchronized void myMethod() { // Noncompliant
+    public synchronized void myMethodSynchronized() { // Noncompliant
         System.out.println("Overridden synchronized method");
     }
 
@@ -14,7 +14,7 @@ public class SynchronizedOverrideCheck {
         return "Original Value";
     }
 
-    public synchronized String getValue() { // Noncompliant
+    public synchronized String getValueSynchronized() { // Noncompliant
         return "Overridden synchronized value";
     }
 
@@ -23,7 +23,7 @@ public class SynchronizedOverrideCheck {
         System.out.println("Synchronized original method");
     }
 
-    public synchronized void synchronizedMethod() {
+    public synchronized void synchronizedMethodOverridden() {
         System.out.println("Synchronized overridden method");
     }
 
@@ -32,7 +32,7 @@ public class SynchronizedOverrideCheck {
         System.out.println("Non-synchronized original method");
     }
 
-    public void nonSynchronizedMethod() {
+    public void nonSynchronizedMethodOverridden() {
         System.out.println("Non-synchronized overridden method");
     }
 }

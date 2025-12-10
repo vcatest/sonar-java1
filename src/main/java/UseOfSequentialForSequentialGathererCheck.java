@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class UseOfSequentialForSequentialGathererCheck {
 
     // Noncompliant - Using sequential for loop where a parallel stream would be more appropriate
@@ -34,8 +39,3 @@ public class UseOfSequentialForSequentialGathererCheck {
                 .collect(Collectors.toList());
     }
 }
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;

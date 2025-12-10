@@ -13,7 +13,7 @@ public class JpaEagerFetchTypeCheck {
         private Long id;
 
         // Noncompliant
-        @OneToMany(mappedBy = "order", eager = true)
+        @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
         private java.util.List<OrderItem> orderItems;
 
         private String customerName;
@@ -59,7 +59,7 @@ public class JpaEagerFetchTypeCheck {
         private String itemName;
 
         // Noncompliant
-        @OneToMany(mappedBy = "orderItem", eager = true)
+        @OneToMany(mappedBy = "orderItem", fetch = FetchType.EAGER)
         private java.util.List<OrderItemDetail> orderItemDetails;
 
         // Getters and setters
